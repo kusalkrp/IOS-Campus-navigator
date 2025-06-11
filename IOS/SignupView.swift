@@ -1,3 +1,4 @@
+
 import SwiftUI
 
 struct SignupView: View {
@@ -15,92 +16,98 @@ struct SignupView: View {
             ZStack(alignment: .bottom) {
                 Color(.systemBackground).edgesIgnoringSafeArea(.all)
                 
-                // Scrollable content area
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 0) {
-                        // Back arrow
-                        Button(action: {
-                            // Handle back action
-                        }) {
-                            Image(systemName: "chevron.left")
-                                .font(.title)
-                                .foregroundColor(.black)
-                        }
-                        .padding(.leading, 24)
-                        .padding(.top, 24)
-                        
-                        // Title
+                VStack(spacing: 0) {
+                    Spacer()
+                   
+                    
+                    // Scrollable content area
+                    ScrollView {
                         VStack(alignment: .leading, spacing: 0) {
-                            (
-                                Text("Create")
+                            // Back arrow
+                            Button(action: {
+                                // Handle back action
+                            }) {
+                                Image(systemName: "chevron.left")
+                                    .font(.title)
                                     .foregroundColor(.black)
-                                + Text(" Your")
-                                    .foregroundColor(.blue)
-                                + Text(" Account")
-                                    .foregroundColor(.black)
-                            )
-                            .font(.system(size: 48, weight: .bold))
-                        }
-                        .padding(.leading, 35)
-                        .padding(.top, 16)
-                        
-                        // Input fields
-                        VStack(spacing: 20) {
-                            TextField("Full Name", text: $fullName)
-                                .padding()
-                                .background(Color(.systemGray6))
-                                .cornerRadius(8)
-                            
-                            TextField("Email", text: $email)
-                                .autocapitalization(.none)
-                                .keyboardType(.emailAddress)
-                                .padding()
-                                .background(Color(.systemGray6))
-                                .cornerRadius(8)
-                            
-                            TextField("Phone Number", text: $phoneNumber)
-                                .keyboardType(.phonePad)
-                                .padding()
-                                .background(Color(.systemGray6))
-                                .cornerRadius(8)
-                            
-                            TextField("Index Number", text: $indexNumber)
-                                .padding()
-                                .background(Color(.systemGray6))
-                                .cornerRadius(8)
-                            
-                            TextField("Campus", text: $campus)
-                                .padding()
-                                .background(Color(.systemGray6))
-                                .cornerRadius(8)
-                            
-                            SecureField("Password", text: $password)
-                                .padding()
-                                .background(Color(.systemGray6))
-                                .cornerRadius(8)
-                            
-                            SecureField("Confirm Password", text: $confirmPassword)
-                                .padding()
-                                .background(Color(.systemGray6))
-                                .cornerRadius(8)
-                                
-                            // Terms and conditions
-                            HStack {
-                                Button(action: { agreeToTerms.toggle() }) {
-                                    Image(systemName: agreeToTerms ? "checkmark.square.fill" : "square")
-                                        .foregroundColor(agreeToTerms ? .blue : .gray)
-                                }
-                                Text("I agree to the Terms & Conditions")
-                                    .font(.footnote)
-                                Spacer()
                             }
-                            .padding(.top, 8)
+                            .padding(.leading, 24)
+                            .padding(.top, 55)
                             
-                            // Add spacer to ensure content can scroll up above the fixed button area
-                            Spacer().frame(height: 200)
+                            // Title
+                            VStack(alignment: .leading, spacing: 0) {
+                                (
+                                    Text("Create")
+                                        .foregroundColor(.black)
+                                    + Text(" Your")
+                                        .foregroundColor(.blue)
+                                    + Text(" Account")
+                                        .foregroundColor(.black)
+                                )
+                                .font(.system(size: 48, weight: .bold))
+                            }
+                            .padding(.leading, 35)
+                            .padding(.top, 16)
+                            
+                            // Input fields
+                            VStack(spacing: 20) {
+                                TextField("Full Name", text: $fullName)
+                                    .padding()
+                                    .background(Color(.systemGray6))
+                                    .cornerRadius(8)
+                                
+                                TextField("Email", text: $email)
+                                    .autocapitalization(.none)
+                                    .keyboardType(.emailAddress)
+                                    .padding()
+                                    .background(Color(.systemGray6))
+                                    .cornerRadius(8)
+                                
+                                TextField("Phone Number", text: $phoneNumber)
+                                    .keyboardType(.phonePad)
+                                    .padding()
+                                    .background(Color(.systemGray6))
+                                    .cornerRadius(8)
+                                
+                                TextField("Index Number", text: $indexNumber)
+                                    .padding()
+                                    .background(Color(.systemGray6))
+                                    .cornerRadius(8)
+                                
+                                TextField("Campus", text: $campus)
+                                    .padding()
+                                    .background(Color(.systemGray6))
+                                    .cornerRadius(8)
+                                
+                                SecureField("Password", text: $password)
+                                    .padding()
+                                    .background(Color(.systemGray6))
+                                    .cornerRadius(8)
+                                
+                                SecureField("Confirm Password", text: $confirmPassword)
+                                    .padding()
+                                    .background(Color(.systemGray6))
+                                    .cornerRadius(8)
+                                    
+                                // Terms and conditions
+                                HStack {
+                                    Button(action: { agreeToTerms.toggle() }) {
+                                        Image(systemName: agreeToTerms ? "checkmark.square.fill" : "square")
+                                            .foregroundColor(agreeToTerms ? .blue : .gray)
+                                    }
+                                    Text("I agree to the Terms & Conditions")
+                                        .font(.footnote)
+                                    Spacer()
+                                }
+                                .padding(.top, 8)
+                                
+                                // Add spacer to ensure content can scroll up above the fixed button area
+                                Spacer().frame(height: 200)
+                            }
+                            .padding(.horizontal, 32)
+                            .padding(.top, 20)
                         }
-                        .padding(.horizontal, 32)
-                        .padding(.top, 20)
+                        .withStatusBar()
                     }
                 }
                 
@@ -182,6 +189,7 @@ struct SignupView: View {
                 )
             }
         }
+        .edgesIgnoringSafeArea(.top)
     }
 }
 

@@ -37,7 +37,7 @@ struct SuccessView: View {
                     Spacer()
                 }
                 .padding(.horizontal, 30)
-                
+                .withStatusBar()
                 // Fixed Exit button at bottom
                 VStack {
                     Button(action: {
@@ -62,6 +62,7 @@ struct SuccessView: View {
             .frame(width: geometry.size.width, height: geometry.size.height)
             .background(Color.white.ignoresSafeArea())
         }
+        
     }
 }
 

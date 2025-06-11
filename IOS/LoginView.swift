@@ -1,7 +1,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var rememberMe: Bool = false
@@ -17,7 +17,7 @@ struct ContentView: View {
                     .foregroundColor(.black)
             }
             .padding(.leading, 24)
-            .padding(.top, 24)
+            .padding(.top, 55)
             
             // Title
             VStack(alignment: .leading, spacing: 0) {
@@ -65,7 +65,7 @@ struct ContentView: View {
                 Spacer()
             }
             .padding(.horizontal, 32)
-            .padding(.top, 16)
+            .padding(.top, 25)
             
             // Sign in button
             Button(action: {
@@ -80,7 +80,7 @@ struct ContentView: View {
                     .font(.headline)
             }
             .padding(.horizontal, 32)
-            .padding(.top, 16)
+            .padding(.top, 25)
             
             // Forgot password
             HStack {
@@ -94,7 +94,7 @@ struct ContentView: View {
                 }
                 Spacer()
             }
-            .padding(.top, 8)
+            .padding(.top, 20)
             
             // Or continue with
             HStack(alignment: .center) {
@@ -110,7 +110,7 @@ struct ContentView: View {
                     .foregroundColor(.black)
             }
             .padding(.horizontal, 32)
-            .padding(.vertical, 16)
+            .padding(.vertical, 25)
             
             // Social icons (centered)
             HStack(spacing: 24) {
@@ -149,11 +149,11 @@ struct ContentView: View {
             .padding(.top, 16)
             Spacer()
         }
-    }
+        .withStatusBar()    }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LoginView()
     }
 }
