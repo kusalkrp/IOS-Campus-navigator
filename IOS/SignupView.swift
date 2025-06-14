@@ -107,7 +107,7 @@ struct SignupView: View {
                             .padding(.horizontal, 32)
                             .padding(.top, 20)
                         }
-                        .withStatusBar()
+                       // .withStatusBar()
                     }
                 }
                 
@@ -117,9 +117,7 @@ struct SignupView: View {
                         .padding(.horizontal, 32)
                     
                     // Sign up button (fixed position)
-                    Button(action: {
-                        // Handle sign up
-                    }) {
+                    NavigationLink(destination: MainTabView())  {
                         Text("Sign Up")
                             .frame(maxWidth: .infinity)
                             .padding()
@@ -169,9 +167,7 @@ struct SignupView: View {
                     // Already have an account
                     HStack {
                         Spacer()
-                        Button(action: {
-                            // Navigate to login
-                        }) {
+                        NavigationLink(destination: LoginView()) {
                             Text("Already have an account?")
                                 .foregroundColor(.blue)
                                 .font(.footnote)

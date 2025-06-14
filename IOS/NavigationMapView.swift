@@ -31,7 +31,7 @@ struct NavigationMapView: View {
                 Spacer()
             }
             .padding(.horizontal, 20)
-            .padding(.top, 55)
+            .padding(.top, 20)
             
             // Tab selector
             HStack(spacing: 0) {
@@ -81,7 +81,7 @@ struct NavigationMapView: View {
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
-        .withStatusBar() // Using our custom status bar
+       // .withStatusBar() // Using our custom status bar
     }
 }
 
@@ -106,8 +106,8 @@ struct NavigationContent: View {
                         .foregroundColor(.black)
                     
                     Image(systemName: "location.circle.fill")
-                        .foregroundColor(.blue)
-                        .font(.system(size: 30, weight: .bold))
+                        .foregroundColor(.white)
+                        .font(.system(size: 5, weight: .bold))
                         
                         
                 }
@@ -173,10 +173,7 @@ struct NavigationContent: View {
                 .padding(.vertical, 15)
                 
                 // Start Navigation button
-                Button(action: {
-                    // Handle navigation start
-                    print("Starting navigation")
-                }) {
+                NavigationLink(destination: MapRoutingView(destination: "IOS Lab", isWheelchairAccessible: false)) {
                     Text("Start Navigation")
                         .font(.headline)
                         .foregroundColor(.white)

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @State private var selectedTab: Tab = .profile
+    @State private var selectedTab: Tab = .home
     
     enum Tab: Int, CaseIterable {
         case home, map, resources, events, profile
@@ -36,9 +36,9 @@ struct MainTabView: View {
                 case .map:
                     NavigationMapView()
                 case .resources:
-                    Text("Resources Screen")
+                    ResourcesView()
                 case .events:
-                    Text("Events Screen")
+                    EventsView()
                 case .profile:
                     SettingsView()
                 }
@@ -56,8 +56,7 @@ struct CustomTabBar: View {
     var body: some View {
         HStack(spacing: 0) {
             Spacer(minLength: 40)
-            ForEach(MainTabView.Tab.allCases, id: \ .self) { tab in
-                Button(action: {
+            ForEach(MainTabView.Tab.allCases, id: \.self) { tab in                Button(action: {
                     selectedTab = tab
                 }) {
                     VStack(spacing: 4) {

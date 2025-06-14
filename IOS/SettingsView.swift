@@ -27,7 +27,7 @@ struct SettingsView: View {
                 Spacer()
             }
         
-            .padding(.top, 40)
+            .padding(.top, 20)
             .padding(.horizontal)
             
            
@@ -126,7 +126,7 @@ struct SettingsView: View {
                 .padding(.bottom, 40)
             }
         }
-        .withStatusBar()
+      //  .withStatusBar()
         .background(Color.white)
         .edgesIgnoringSafeArea(.bottom)
        }

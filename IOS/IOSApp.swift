@@ -1,17 +1,11 @@
-//
-//  IOSApp.swift
-//  IOS
-//
-//  Created by Kusal Punchihewa on 2025-06-06.
-//
-
+// In your App file (CampusWayApp.swift)
 import SwiftUI
 
 @main
-struct IOSApp: App {
+struct CampusWayApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            CampusWayView()
         }
     }
 }

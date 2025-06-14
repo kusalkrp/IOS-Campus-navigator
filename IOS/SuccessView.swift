@@ -1,73 +1,82 @@
+
 import SwiftUI
 
 struct SuccessView: View {
-    @Environment(\.presentationMode) var presentationMode
-    
+    @State private var showMainTab = false
+
     var body: some View {
-        GeometryReader { geometry in
-            ZStack(alignment: .bottom) {
-                VStack(alignment: .leading, spacing: 20) {
-                    // Celebration text
-                    Text("Hoorayyy!!!")
-                        .font(.system(size: 48, weight: .bold))
-                        .foregroundColor(.blue)
-                        .padding(.top, 60)
+        VStack(spacing: 0) {
+            // Content area
+            VStack(spacing: 0) {
+                // Top spacer to push content down from status bar
+                Spacer()
+                    .frame(height: 30)
+                
+                // Success animation area
+                ZStack {
+                    // Blue circular background
+                    Circle()
+                        .fill(Color.blue.opacity(0.1))
+                        .frame(width: 200, height: 200)
                     
-                    Text("You have reached to your destination.")
-                        .font(.system(size: 36))
-                        .foregroundColor(.black)
-                        .padding(.top, 5)
-                    
-                    // Centered tick icon
-                    HStack {
-                        Spacer()
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 20)
-                                .fill(Color.blue)
-                                .frame(width: 120, height: 120)
-                            
-                            Image(systemName: "checkmark")
-                                .font(.system(size: 70, weight: .bold))
-                                .foregroundColor(.white)
-                        }
-                        Spacer()
+                    // Success checkmark with blue background
+                    ZStack {
+                        Circle()
+                            .fill(Color.blue)
+                            .frame(width: 120, height: 120)
+                        
+                        Image(systemName: "checkmark")
+                            .font(.system(size: 60, weight: .bold))
+                            .foregroundColor(.white)
                     }
-                    .padding(.top, 50)
-                    
-                    Spacer()
+                }
+                .padding(.bottom, 40)
+                
+                // Success text
+                Text("Hooray!")
+                    .font(.system(size: 36, weight: .bold))
+                    .foregroundColor(.primary)
+                
+                Text("You have successfully reached your destination.")
+                    .font(.system(size: 20))
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 30)
+                    .padding(.top, 8)
+                
+                // Spacer to push content up
+                Spacer()
+                
+                // Exit button
+                Button(action: {
+                    showMainTab = true
+                }) {
+                    Text("Done")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 56)
+                        .background(Color.blue)
+                        .cornerRadius(28)
                 }
                 .padding(.horizontal, 30)
-                .withStatusBar()
-                // Fixed Exit button at bottom
-                VStack {
-                    Button(action: {
-                        // Dismiss the view or perform exit action
-                        presentationMode.wrappedValue.dismiss()
-                    }) {
-                        Text("Exit")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 56)
-                            .background(Color.blue)
-                            .cornerRadius(14)
-                    }
-                    .padding(.horizontal, 30)
-                    .padding(.bottom, 40)
-                }
-                .padding(.top, 20)
-                .background(Color.white)
+                .padding(.bottom, 50) // Safe area + padding
             }
-            .ignoresSafeArea(edges: .bottom)
-            .frame(width: geometry.size.width, height: geometry.size.height)
-            .background(Color.white.ignoresSafeArea())
         }
-        
+        .padding(.top, 40) // Add padding at top for status bar
+        //.withStatusBar()
+        .background(Color(.systemBackground).edgesIgnoringSafeArea(.all))
+        .navigationBarHidden(true)
+        .fullScreenCover(isPresented: $showMainTab) {
+            MainTabView()
+        }
     }
 }
 
 struct SuccessView_Previews: PreviewProvider {
     static var previews: some View {
-        SuccessView()
+        Group {
+            SuccessView()
+        }
     }
 }
