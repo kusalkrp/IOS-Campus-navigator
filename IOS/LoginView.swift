@@ -119,19 +119,47 @@ struct LoginView: View {
                 // Social icons (centered)
                 HStack(spacing: 24) {
                     Spacer()
-                    ForEach(["facebook", "google", "apple"], id: \.self) { icon in
-                        Button(action: {
-                            // Handle social login
-                        }) {
-                            ZStack {
-                                Circle()
-                                    .fill(Color(.systemGray6))
-                                    .frame(width: 44, height: 44)
-                                Image(icon + ".logo")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 24, height: 24)
-                            }
+                    // Facebook
+                    Button(action: {
+                        // Handle Facebook login
+                    }) {
+                        ZStack {
+                            Circle()
+                                .fill(Color(.systemGray6))
+                                .frame(width: 44, height: 44)
+                            Image("facebook")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 24, height: 24)
+                        }
+                    }
+                    // Google
+                    Button(action: {
+                        // Handle Google login
+                    }) {
+                        ZStack {
+                            Circle()
+                                .fill(Color(.systemGray6))
+                                .frame(width: 44, height: 44)
+                            Image("gogle")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 24, height: 24)
+                        }
+                    }
+                    // Apple (using SF Symbol)
+                    Button(action: {
+                        // Handle Apple login
+                    }) {
+                        ZStack {
+                            Circle()
+                                .fill(Color(.systemGray6))
+                                .frame(width: 44, height: 44)
+                            Image(systemName: "apple.logo")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(.black)
                         }
                     }
                     Spacer()
